@@ -24,7 +24,7 @@
   funcionalidad en el localStorage para que no tengas que repetir esto 
   cada vez.
 
-  IMPORTANTE
+  **IMPORTANTE**
   Una vez hagas lo indicado en ** Obtenlo fácilmente ** de aquí arriba, cada
   vez que se recargue la página los botones desaparecerán y para volver
   a verlos ya no tienes que volver a pegar todo de nuevo, sino solamente 
@@ -66,7 +66,7 @@
   functionality in the localStorage so you don't have to repeat this
   every time.
 
-  IMPORTANT
+  **IMPORTANT**
   Once you do what is indicated in ** Get it easily ** above, each
   once the page is reloaded the buttons will disappear and to return
   to see them you no longer have to paste everything again, but only
