@@ -53,6 +53,9 @@
         display: flex;
         justify-content: space-around;
       }
+      .custom-container-by-EHL button {
+        cursor: pointer;
+      }
       .custom-container-by-EHL button:hover {
         text-shadow: 2px 2px 5px #fff
       }
