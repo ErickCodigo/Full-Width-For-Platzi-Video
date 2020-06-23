@@ -6,7 +6,7 @@
   para que manejes las dimensiones del reproductor.
 
   ** Obtenlo fácilmente:
-  Pega los scripts de aquí abajo, exactamente en el orden en que están.
+  Pega los scripts del index.js, exactamente en el orden en que están.
 
   Te explico como:
   1. Copia la primera parte del script
@@ -28,11 +28,10 @@
   Una vez hagas lo indicado en ** Obtenlo fácilmente ** de aquí arriba, cada
   vez que se recargue la página los botones desaparecerán y para volver
   a verlos ya no tienes que volver a pegar todo de nuevo, sino solamente 
-  la segunda parte del script aquí abajo.
+  la segunda parte del script del index.js.
 
   Es decir, cuando recargues la página, los botones desaparecerán, pero para
-  verlos nuevamente solo debes pegar la segunda parte de los scripts de aquí
-  abajo.
+  verlos nuevamente solo debes pegar la segunda parte de los scripts del index.js.
 
   ESTO SOLAMENTE FUNCIONA AL REPRODUCIR UN VIDEO EN LA PLATAFORMA PLATZI.
 
@@ -48,7 +47,7 @@
   for you to manage the dimensions of the player.
 
   ** Get it easily:
-  Paste the scripts below, exactly in the order they are.
+  Paste the scripts from index.js, exactly in the order they are.
 
   I explain how:
   1. Copy the first part of the script
@@ -70,10 +69,10 @@
   Once you do what is indicated in ** Get it easily ** above, each
   once the page is reloaded the buttons will disappear and to return
   to see them you no longer have to paste everything again, but only
-  the second part of the script below.
+  the second part of the script from index.js.
 
   That is, when you reload the page, the buttons will disappear, but for
-  to see them again you should only paste the second part of the scripts here
-  down.
+  to see them again you should only paste the second part of the scripts 
+  from index.js.
 
   THIS ONLY WORKS BY PLAYING A VIDEO ON THE PLATZI PLATFORM.
