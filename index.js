@@ -21,16 +21,19 @@
 
       const normal = () => {
         livePrimary.style = "width: 60%;";
-        liveChatContent.style = "width: 40%;";
+        liveChatContent.style = "width: 40%;flex: 1 1 auto;";
+        videoMaterialLayout.style = "flex-wrap: nowrap;";
       };
 
       const recommended = () => {
         livePrimary.style = "width: 70%;";
-        liveChatContent.style = "width: 30%;";
+        liveChatContent.style = "width: 30%;flex: 1 1 auto;";
+        videoMaterialLayout.style = "flex-wrap: nowrap;";
       };
 
       const fullScreen = () => {
         livePrimary.style = "width: 100%;";
+        videoMaterialLayout.style = "flex-wrap: wrap;";
       };
 
       btnNormal.addEventListener("click", normal);
@@ -44,8 +47,6 @@
       [btnNormal, btnRecommended, btnFullWidth].forEach(btn => {
         wrapper.append(btn);
       });
-
-      videoMaterialLayout.style = "flex-wrap: wrap;";
 
       const elementStyle = document.createElement("STYLE");
       const styles = `
