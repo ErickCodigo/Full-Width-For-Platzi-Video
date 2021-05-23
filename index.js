@@ -1,86 +1,120 @@
 // Primera parte | First part
 (function init() {
-  const tools = {
-    show: function() {
-      const livePrimary = document.querySelector(".Live-primary");
-      const liveChatContent = document.querySelector(".Live-chat-content");
-      const btnFullScreen = document.querySelector(
-        ".vjs-fullscreen-control.vjs-control.vjs-button"
-      );
-      const videoMaterialLayout = document.querySelector(
-        ".Live.VideoMaterialLayout-background"
-      );
+    const tools = {
+        hydrate: function () {
+            const sizeVideo = "530px";
+            const xs = {
+                gridLayoutContainer: {
+                    selector: ".MaterialView.MaterialView-type--video", styles: [
+                        "grid-template-columns:100%!important",
+                        "grid-template-rows:1fr 1.5fr!important",
+                        "grid-template-areas:'video''community'!important"
+                    ]
+                },
+                videoContainer: {
+                    selector: ".MaterialView-video", styles: [
+                        "height: 450px!important",
+                        `min-height: ${sizeVideo}!important`
+                    ]
+                },
+                videoItem: {
+                    selector: ".MaterialView-video-item", styles: [
+                        "max-width: 100vw!important"
+                    ]
+                },
+                videoContent: {
+                    selector: ".MaterialView-content", styles: [
+                        "display: none!important"
+                    ]
+                },
+                videoFrame: {
+                    selector: ".VideoPlayer > div", styles: [
+                        "padding-bottom:0!important",
+                        `height: ${sizeVideo}!important`
+                    ]
+                },
+                chatsWrapper: {
+                    selector: ".InfinityScrollLayout", styles: [
+                        "padding-bottom:5rem!important"
+                    ]
+                },
+                communityWrapper: {
+                    selector: ".MaterialView-community-wrapper", styles: [
+                        "max-width: 50%!important",
+                        "margin: 0 auto!important"
+                    ]
+                },
+            };
+            const attrNameIsInjected = "isInjected";
 
-      const btnNormal = document.createElement("BUTTON");
-      const btnRecommended = document.createElement("BUTTON");
-      const btnFullWidth = document.createElement("BUTTON");
+            function iterate(callback) {
+                Object.keys(xs).forEach(key => callback(xs[key]))
+            }
 
-      btnNormal.innerHTML = "Normal";
-      btnRecommended.innerHTML = "Recomendado";
-      btnFullWidth.innerHTML = "Toda ancho";
+            function injectCssStyles() {
+                let styles = "";
+                iterate(element => {
+                    const selector = element.selector;
+                    const content = element.styles.toString().replaceAll(",", ";");
 
-      const normal = () => {
-        livePrimary.style = "width: 60%;";
-        liveChatContent.style = "width: 40%;flex: 1 1 auto;";
-        videoMaterialLayout.style = "flex-wrap: nowrap;";
-      };
+                    styles += `${selector}{${content}}`;
+                })
 
-      const recommended = () => {
-        livePrimary.style = "width: 70%;";
-        liveChatContent.style = "width: 30%;flex: 1 1 auto;";
-        videoMaterialLayout.style = "flex-wrap: nowrap;";
-      };
+                const styleElement = document.createElement("STYLE");
+                styleElement.setAttribute("type", "text/css");
+                styleElement.setAttribute("data", "location");
+                styleElement.append(styles);
+                document.head.append(styleElement);
 
-      const fullScreen = () => {
-        livePrimary.style = "width: 100%;";
-        videoMaterialLayout.style = "flex-wrap: wrap;";
-      };
+                localStorage.setItem(attrNameIsInjected, "true");
+            }
 
-      btnNormal.addEventListener("click", normal);
-      btnRecommended.addEventListener("click", recommended);
-      btnFullWidth.addEventListener("click", fullScreen);
+            function revertInjection() {
+                const headTag = document.querySelector("style[data=location]");
+                if (headTag) {
+                    headTag.parentElement.removeChild(headTag);
 
-      const newContainer = document.createElement("DIV");
-      newContainer.setAttribute("class", "custom-container-by-EHL");
+                    localStorage.setItem(attrNameIsInjected, "false");
+                }
+            }
 
-      const wrapper = document.createDocumentFragment();
-      [btnNormal, btnRecommended, btnFullWidth].forEach(btn => {
-        wrapper.append(btn);
-      });
+            function isInjected() {
+                return localStorage.getItem(attrNameIsInjected) === "true";
+            }
 
-      const elementStyle = document.createElement("STYLE");
-      const styles = `
-      .custom-container-by-EHL {
-        display: flex;
-        justify-content: space-around;
-      }
-      .custom-container-by-EHL button {
-        cursor: pointer;
-      }
-      .custom-container-by-EHL button:hover {
-        text-shadow: 2px 2px 5px #fff
-      }
-      `;
-      elementStyle.setAttribute("type", "text/css");
-      elementStyle.append(styles);
-      document.head.append(elementStyle);
+            function toggleInjection() {
+                const is = isInjected();
 
-      btnFullScreen.insertAdjacentElement("beforebegin", newContainer);
-      newContainer.append(wrapper);
-    }
-  };
+                if (is) revertInjection();
+                else injectCssStyles();
+            }
 
-  localStorage.setItem(
-    "platzi-tools",
-    JSON.stringify(tools, function(_, value) {
-      if (typeof value === "function") return value.toString();
-      return value;
-    })
-  );
+            function main() {
+                const btnAction = document.createElement("BUTTON");
+                btnAction.style = "background:#33b1ff;box-sizing:border-box;border:1px solid #33b1ff;font-size:1em;padding:.5rem;border-radius:8px;color:#fff;font-weight:bold;"
+                btnAction.innerHTML = "Ser genial! &#9996;"
+                btnAction.addEventListener("click", toggleInjection);
+
+                const menuTag = document.querySelector(".Menu-content div ul");
+                menuTag.insertAdjacentElement("afterbegin", btnAction);
+            }
+
+            main();
+        }
+    };
+
+    localStorage.setItem(
+        "platzi-tools",
+        JSON.stringify(tools, function (_, value) {
+            if (typeof value === "function") return value.toString();
+            return value;
+        })
+    );
 })();
 
 // Segunda parte | Second part
 (function start() {
-  const platziTools = JSON.parse(localStorage.getItem("platzi-tools"));
-  if (!!platziTools) eval(`(${platziTools.show})`)();
+    const platziTools = JSON.parse(localStorage.getItem("platzi-tools"));
+
+    if (!!platziTools) eval(`(${platziTools.hydrate})`)();
 })();
