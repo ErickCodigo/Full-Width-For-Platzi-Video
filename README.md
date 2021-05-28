@@ -1,3 +1,11 @@
+# Usar plugin
+Google chrome pide 5 dólares para publicar plugins, apóyame para agregar esta característica.
+
+### Ventajas de un plugin
+* No necesitas copiar nada de código, solo das click si lo quieres ejecutar y otro para desactivarlo.
+
+[Apoyar por paypal](https://www.paypal.me/erprogramador)
+
 # Full-Width-For-Platzi-Video
 
 **Aprende cómo mirando el siguiente VIDEO:** [Ver video](https://www.loom.com/share/d3115d9ee7c248a1942e33a1ef2b731a)
