@@ -22,4 +22,6 @@ Te explico como:
 5. Ahí pega la primera parte del script
 6. Luego copia la segunda parte del script y pegalo en la misma consola
 
-LISTO. Nota: Una vez realizado todos los pasos, cada vez que cambies de capítulo de un curso, solo debes repetir el último paso para volver a ver el botón de "Ser genial!"
+LISTO. 
+
+*Nota: Una vez realizado todos los pasos, cada vez que cambies de capítulo de un curso, solo debes repetir el último paso para volver a ver el botón de "Ser genial!"*
